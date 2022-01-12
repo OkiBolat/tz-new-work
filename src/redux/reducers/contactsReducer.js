@@ -1,6 +1,4 @@
-const GET_CONTACTS = 'GET_CONTACTS'
-const ADD_CONTACT = 'ADD_CONTACT'
-// const DELETE_CONTACT = 'DELETE_CONTACT'
+import { ADD_CONTACT, GET_CONTACTS, DELETE_CONTACT } from "./actions"
 
 const initialState = {
   contacts: [{
@@ -49,5 +47,6 @@ const contactsReducer = (state = initialState, action) => {
       return state
   }
 }
+
 
 export default contactsReducer

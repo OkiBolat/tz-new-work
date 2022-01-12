@@ -4,7 +4,6 @@ import ContactList from "./ContactList";
 
 
 const ContactListContainer = (props) => {
-  debugger
   return <ContactList {...props}/>
 }
 
