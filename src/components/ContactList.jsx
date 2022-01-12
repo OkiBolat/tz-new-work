@@ -3,6 +3,7 @@ import Contact from "./Contact";
 
 
 const ContactList = (props) => {
+  debugger
   return (
     <div>
       {props.contacts.map(item => (
