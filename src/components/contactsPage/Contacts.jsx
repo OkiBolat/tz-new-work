@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/reducers/actions";
+import EditContactModal from "./EditContactModal";
 
 const Contact = (props) => {
   const dispatch = useDispatch()
@@ -30,6 +31,7 @@ const Contact = (props) => {
               <td>{item.phone}</td>
               <td>
                 <i onClick={() => deleteItem(item.id)} class="bi bi-trash" />
+                <EditContactModal item={item}/>
               </td>
             </tr>
           </tbody>

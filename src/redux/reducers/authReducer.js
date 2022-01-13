@@ -1,6 +1,5 @@
 import { SET_AUTH } from "./actions";
 
-
 const initialState = {
   isAuthorized: true,
 }
@@ -15,7 +14,5 @@ const authReducer = (state = initialState, action) => {
       return state;
   }
 }
-
-
 
 export default authReducer

@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Modal, Button, Form } from "react-bootstrap";
-import { addContacts } from "../../redux/reducers/actions"; 
+import {editContact } from "../../redux/reducers/actions"; 
 
 
-const AddContactModal = () => {
+const EditContactModal = ({item}) => {
+
+
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: ''
+    id: item.id,
+    name: item.name,
+    email: item.email,
+    phone: item.phone
   })
 
   const handleClose = () => setShow(false);
@@ -21,18 +24,16 @@ const AddContactModal = () => {
   const onChange = ({ target }) => {
     setFormData((data) => ({ ...data, [target.name]: target.value }));
   };
-  
+
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addContacts(formData))
+    dispatch(editContact(formData))
     setShow(false)
   }
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Добавить контакт
-      </Button>
+    <i variant="primary" onClick={handleShow} class="bi bi-credit-card-2-front"/>
       <Modal className='' show={show} onHide={handleClose}>
         <Modal.Body>
           <Form onSubmit={submitHandler}>
@@ -48,7 +49,6 @@ const AddContactModal = () => {
               <Form.Label>Введите телефон</Form.Label>
               <Form.Control onChange={onChange} value={formData.phone} name="phone" type="number" placeholder="+(---)-------" />
             </Form.Group>
-
             <Button variant="primary" type="submit">
               Добавить
             </Button>
@@ -62,4 +62,4 @@ const AddContactModal = () => {
 
 
 
-export default AddContactModal;
+export default EditContactModal;

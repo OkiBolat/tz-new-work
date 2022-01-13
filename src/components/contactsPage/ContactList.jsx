@@ -1,5 +1,5 @@
 import React from "react";
-import AddContactModal from "../authPage/AddContactModal.jsx"
+import AddContactModal from "./AddContactModal"
 import Contacts from "./Contacts";
 import styles from './ContactList.module.css'
 
