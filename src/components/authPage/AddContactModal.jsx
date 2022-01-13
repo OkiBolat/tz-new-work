@@ -15,14 +15,17 @@ const AddContactModal = () => {
   })
 
   const handleClose = () => setShow(false);
+
   const handleShow = () => setShow(true);
+
   const onChange = ({ target }) => {
     setFormData((data) => ({ ...data, [target.name]: target.value }));
   };
+  
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(addContacts(formData))
-    handleClose()
+    setShow(false)
   }
 
   return (

@@ -1,19 +1,23 @@
 import React from "react";
 import AddContactModal from "../authPage/AddContactModal.jsx"
-import Contact from "./Contact";
+import Contacts from "./Contacts";
+import styles from './ContactList.module.css'
 
 const ContactList = (props) => {
   return (
-    <div>
+    <div className={styles.container}>
       <div>
-        <AddContactModal />
+        <div className={styles.header}>
+          <h1>Контактная книжка</h1>
+        </div>
       </div>
-      <div>
-        {props.contacts.map(item => (
-          <Contact email={item.mail}
-            phone={item.phone}
-            name={item.name}
-          />))}
+      <div className={styles.main}>
+        <div className={styles.modal}>
+          <AddContactModal />
+        </div>
+        <div className={styles.contacts}>
+          <Contacts contacts={props.contacts} />
+        </div>
       </div>
     </div>
   )

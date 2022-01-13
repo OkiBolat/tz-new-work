@@ -2,29 +2,30 @@ import { ADD_CONTACT, GET_CONTACTS, DELETE_CONTACT } from "./actions"
 
 const initialState = {
   contacts: [{
-  id: 1,
-  name: 'Bulat',
-  mail: 'adasdasd@asd.com',
-  phone: '2131412-123123'
-},
-{
-  id: 1,
-  name: 'Bulat',
-  mail: 'adasdasd@asd.com',
-  phone: '2131412-123123'
-},
-{
-  id: 1,
-  name: 'Bulat',
-  mail: 'adasdasd@asd.com',
-  phone: '2131412-123123'
-},
-{
-  id: 1,
-  name: 'Bulat',
-  mail: 'adasdasd@asd.com',
-  phone: '2131412-123123'
-},]}
+    id: 1,
+    name: 'Bulat',
+    email: 'adasdasd@asd.com',
+    phone: '2131412-123123'
+  },
+  {
+    id: 2,
+    name: 'Bulat',
+    email: 'adasdasd@asd.com',
+    phone: '2131412-123123'
+  },
+  {
+    id: 3,
+    name: 'Bulat',
+    email: 'adasdasd@asd.com',
+    phone: '2131412-123123'
+  },
+  {
+    id: 4,
+    name: 'Bulat',
+    email: 'adasdasd@asd.com',
+    phone: '2131412-123123'
+  },
+]}
 
 
 const contactsReducer = (state = initialState, action) => {
@@ -36,11 +37,15 @@ const contactsReducer = (state = initialState, action) => {
     case ADD_CONTACT:
       const card = {
         name: action.payload.name,
-        mail: action.payload.mail,
+        email: action.payload.email,
         phone: action.payload.phone
       }
       return {
         ...state, contacts: [...state.contacts, card]
+      }
+      case DELETE_CONTACT: 
+      return {
+        ...state, contacts : state.contacts.filter(item => item.id !== action.payload.id)
       }
 
     default:
