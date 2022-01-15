@@ -1,10 +1,10 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import styles from './AuthPage.module.css'
+
 const AuthPage = () => {
   return (
     <div className={styles.container}>
-
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -27,6 +27,5 @@ const AuthPage = () => {
     </div>
   )
 }
-
 
 export default AuthPage

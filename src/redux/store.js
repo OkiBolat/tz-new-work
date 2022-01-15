@@ -1,13 +1,13 @@
-import { createStore, combineReducers } from "redux";
-import authReducer from "./reducers/authReducer";
-import contactsReducer from "./reducers/contactsReducer";
-const reducers = combineReducers({
-  contactsPage: contactsReducer,
-  authorized: authReducer
-})
+import { createStore, applyMiddleware} from "redux";
+import thunk from "redux-thunk";
+import rootReducer from './reducers'
 
-const store = createStore(reducers)
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 window.store = store
 
+
+
 export default store
+
